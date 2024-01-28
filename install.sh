@@ -28,9 +28,10 @@ if [ $check = 0 ];then
 fi
 
 # create manifests
-_WORKDIR=./k8s-sources
-_OUTPUTDIR=./k8s
+_WORKDIR=k8s-sources
+_OUTPUTDIR=k8s
 _VALUE=service-account
+mkdir ./$_OUTPUTDIR
 envsubst <./${_WORKDIR}/${_VALUE}.yml >./${_OUTPUTDIR}/${_SERVICE_ACCOUNT}-${_VALUE}.yml
 envsubst <./${_WORKDIR}/${_VALUE}-token.yml >./${_OUTPUTDIR}/${_SERVICE_ACCOUNT}-${_VALUE}-token.yml
 envsubst <./${_WORKDIR}/${_VALUE}-role.yml >./${_OUTPUTDIR}/${_SERVICE_ACCOUNT}-${_VALUE}-role.yml
